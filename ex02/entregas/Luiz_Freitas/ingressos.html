@@ -6,7 +6,6 @@
   <title>Ingressos</title>
   <link rel="stylesheet" href="../../css/estilo.css">
   <style>
-    /* Conteúdo visível apenas para leitores de tela. */
     .sr-only {
       position: absolute;
       width: 1px;
@@ -19,7 +18,6 @@
       border: 0;
     }
 
-    /* Link "pular para o conteúdo": some, mas aparece ao receber foco. */
     .link-pular {
       position: absolute;
       left: -9999px;
@@ -32,8 +30,7 @@
     .link-pular:focus {
       left: 8px;
     }
-
-    /* Foco visível reforçado (o CSS do portal removia o outline). */
+    
     a:focus,
     button:focus,
     .link-pular:focus {
@@ -41,8 +38,6 @@
       outline-offset: 2px;
     }
 
-    /* Bordas e fundo também nas células de cabeçalho (th), para manter a
-       aparência da tabela depois da correção semântica. */
     .tabela-precos th,
     .tabela-precos td {
       border: 1px solid #cfd6df;
@@ -76,8 +71,6 @@
     <main id="conteudo-principal">
       <section aria-labelledby="titulo-precos">
         <h1 id="titulo-precos">Preços por espetáculo</h1>
-        <!-- Imagem de texto que apenas repete o título acima: decorativa
-             para o leitor de tela, para não anunciar a mesma frase duas vezes. -->
         <img src="../../img/titulo-precos.png" alt="">
         <p>Valores por espetáculo e por categoria de público.</p>
 
@@ -161,7 +154,6 @@
 
       <section aria-labelledby="titulo-compra">
         <h2 id="titulo-compra" class="titulo-falso">Compra por telefone</h2>
-        <!-- Ícone decorativo: a informação do telefone está no texto abaixo. -->
         <img src="../../img/telefone.png" alt="">
         <p>
           Reservas pelo telefone
