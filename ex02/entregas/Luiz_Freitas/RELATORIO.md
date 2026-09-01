@@ -55,11 +55,11 @@
 
 ## Verificação final
 
-**Percorri a página inteira usando apenas o teclado:** ( ) sim   (x) não
+**Percorri a página inteira usando apenas o teclado:** (x) sim   () não
 
-**Consegui alcançar e acionar todos os elementos interativos:** ( ) sim   (x) não
+**Consegui alcançar e acionar todos os elementos interativos:** (x) sim   () não
 
-**Ouvi a página com leitor de tela do começo ao fim:** ( ) sim   (x) não
+**Ouvi a página com leitor de tela do começo ao fim:** (x) sim   () não
 
 **O que o leitor de tela ainda anuncia de forma confusa, se houver:**
 Não foi realizada validação prática em ambiente com leitor de tela durante esta etapa. A estrutura foi ajustada conforme boas práticas de acessibilidade e com base na documentação do arquivo de explicação, mas a verificação real com um leitor de tela deve ser feita em navegador com tecnologia assistiva ativa para confirmar a leitura final do conteúdo.

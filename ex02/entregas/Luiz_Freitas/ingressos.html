@@ -4,77 +4,156 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Ingressos</title>
-  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="../../css/estilo.css">
+  <style>
+    /* Conteúdo visível apenas para leitores de tela. */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Link "pular para o conteúdo": some, mas aparece ao receber foco. */
+    .link-pular {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      background: #0f3c78;
+      color: #ffffff;
+      padding: 8px 12px;
+      z-index: 1000;
+    }
+    .link-pular:focus {
+      left: 8px;
+    }
+
+    /* Foco visível reforçado (o CSS do portal removia o outline). */
+    a:focus,
+    button:focus,
+    .link-pular:focus {
+      outline: 3px solid #0f3c78;
+      outline-offset: 2px;
+    }
+
+    /* Bordas e fundo também nas células de cabeçalho (th), para manter a
+       aparência da tabela depois da correção semântica. */
+    .tabela-precos th,
+    .tabela-precos td {
+      border: 1px solid #cfd6df;
+      padding: 8px 10px;
+      font-size: 14px;
+      text-align: left;
+    }
+    .tabela-precos thead th,
+    .tabela-precos .linha-secao th {
+      background: #e8edf3;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
 
+  <a href="#conteudo-principal" class="link-pular">Pular para o conteúdo principal</a>
+
   <div class="pagina">
-    <header class="topo-portal" aria-label="Cabeçalho do portal">
-      <img src="../img/logotipo.png" alt="Logotipo do portal Luzes da Cidade">
+    <header class="topo-portal">
+      <img src="../../img/logotipo.png" alt="Luzes da Cidade, portal de eventos culturais">
       <p class="texto-apoio">Portal de eventos culturais</p>
     </header>
 
     <nav class="menu-portal" aria-label="Menu principal">
-      <a href="#" aria-label="Ir para a página inicial">Início</a>
-      <a href="#" aria-current="page" aria-label="Página atual de ingressos">Ingressos</a>
-      <a href="#" aria-label="Ir para a página de contato">Contato</a>
+      <a href="#">Início</a>
+      <a href="#" aria-current="page">Ingressos</a>
+      <a href="#">Contato</a>
     </nav>
 
     <main id="conteudo-principal">
       <section aria-labelledby="titulo-precos">
         <h1 id="titulo-precos">Preços por espetáculo</h1>
-        <img src="../img/titulo-precos.png" alt="Título: preços por espetáculo">
+        <!-- Imagem de texto que apenas repete o título acima: decorativa
+             para o leitor de tela, para não anunciar a mesma frase duas vezes. -->
+        <img src="../../img/titulo-precos.png" alt="">
         <p>Valores por espetáculo e por categoria de público.</p>
 
-        <table class="tabela-precos" aria-labelledby="titulo-precos" aria-describedby="descricao-tabela">
-          <caption id="descricao-tabela">Tabela de preços por espetáculo e categoria de público. Cada linha apresenta o nome do espetáculo e os valores para inteira, meia entrada, estudante e idoso.</caption>
+        <table class="tabela-precos">
+          <caption>
+            Preços por espetáculo e categoria de público. Cada linha traz o nome
+            do espetáculo e os valores para inteira, meia-entrada, estudante e
+            idoso. Os valores estão em reais.
+          </caption>
           <thead>
             <tr class="linha-cabecalho">
-              <th scope="col" id="col-espetaculo">Espetáculo</th>
-              <th scope="col" id="col-int">INT</th>
-              <th scope="col" id="col-mei">MEI</th>
-              <th scope="col" id="col-est">EST</th>
-              <th scope="col" id="col-ido">IDO</th>
+              <th scope="col">Espetáculo</th>
+              <th scope="col">
+                <span aria-hidden="true">INT</span>
+                <span class="sr-only">Inteira</span>
+              </th>
+              <th scope="col">
+                <span aria-hidden="true">MEI</span>
+                <span class="sr-only">Meia-entrada</span>
+              </th>
+              <th scope="col">
+                <span aria-hidden="true">EST</span>
+                <span class="sr-only">Estudante</span>
+              </th>
+              <th scope="col">
+                <span aria-hidden="true">IDO</span>
+                <span class="sr-only">Idoso</span>
+              </th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <th scope="row" headers="col-espetaculo">Orquestra Sinfônica da Serra</th>
-              <td headers="col-int">R$ 60,00</td>
-              <td headers="col-mei">R$ 30,00</td>
-              <td headers="col-est">R$ 24,00</td>
-              <td headers="col-ido">R$ 30,00</td>
+              <th scope="row">Orquestra Sinfônica da Serra</th>
+              <td>R$ 60,00</td>
+              <td>R$ 30,00</td>
+              <td>R$ 24,00</td>
+              <td>R$ 30,00</td>
             </tr>
             <tr>
-              <th scope="row" headers="col-espetaculo">Companhia Teatral Muda</th>
-              <td headers="col-int">R$ 45,00</td>
-              <td headers="col-mei">R$ 22,50</td>
-              <td headers="col-est">R$ 18,00</td>
-              <td headers="col-ido">R$ 22,50</td>
+              <th scope="row">Companhia Teatral Muda</th>
+              <td>R$ 45,00</td>
+              <td>R$ 22,50</td>
+              <td>R$ 18,00</td>
+              <td>R$ 22,50</td>
             </tr>
             <tr>
-              <th scope="row" headers="col-espetaculo">Grupo Passo Livre</th>
-              <td headers="col-int">R$ 50,00</td>
-              <td headers="col-mei">R$ 25,00</td>
-              <td headers="col-est">R$ 20,00</td>
-              <td headers="col-ido">R$ 25,00</td>
+              <th scope="row">Grupo Passo Livre</th>
+              <td>R$ 50,00</td>
+              <td>R$ 25,00</td>
+              <td>R$ 20,00</td>
+              <td>R$ 25,00</td>
             </tr>
+          </tbody>
+          <tbody>
             <tr class="linha-secao">
-              <th scope="row" colspan="5" headers="col-espetaculo">Sessões extras de dezembro</th>
+              <th colspan="5" scope="rowgroup">Sessões extras de dezembro</th>
             </tr>
             <tr>
-              <th scope="row" headers="col-espetaculo">Orquestra Sinfônica da Serra</th>
-              <td headers="col-int">R$ 70,00</td>
-              <td headers="col-mei">R$ 35,00</td>
-              <td headers="col-est">R$ 28,00</td>
-              <td headers="col-ido">R$ 35,00</td>
+              <th scope="row">
+                Orquestra Sinfônica da Serra
+                <span class="sr-only">— sessões extras de dezembro</span>
+              </th>
+              <td>R$ 70,00</td>
+              <td>R$ 35,00</td>
+              <td>R$ 28,00</td>
+              <td>R$ 35,00</td>
             </tr>
             <tr>
-              <th scope="row" headers="col-espetaculo">Grupo Passo Livre</th>
-              <td headers="col-int">R$ 58,00</td>
-              <td headers="col-mei">R$ 29,00</td>
-              <td headers="col-est">R$ 23,20</td>
-              <td headers="col-ido">R$ 29,00</td>
+              <th scope="row">
+                Grupo Passo Livre
+                <span class="sr-only">— sessões extras de dezembro</span>
+              </th>
+              <td>R$ 58,00</td>
+              <td>R$ 29,00</td>
+              <td>R$ 23,20</td>
+              <td>R$ 29,00</td>
             </tr>
           </tbody>
         </table>
@@ -82,13 +161,18 @@
 
       <section aria-labelledby="titulo-compra">
         <h2 id="titulo-compra" class="titulo-falso">Compra por telefone</h2>
-        <img src="../img/telefone.png" alt="Ícone de telefone para atendimento por telefone numero: (12) 3668-9620">
+        <!-- Ícone decorativo: a informação do telefone está no texto abaixo. -->
+        <img src="../../img/telefone.png" alt="">
+        <p>
+          Reservas pelo telefone
+          <a href="tel:+551236689620">(12) 3668-9620</a>.
+        </p>
         <p class="texto-apoio">Atendimento de segunda a sexta, das 9h às 18h.</p>
-        <button type="button" class="botao-falso" aria-label="Reservar ingresso" onclick="alert('Reserva iniciada.');">Reservar ingresso</button>
+        <button type="button" class="botao-falso" onclick="alert('Reserva iniciada.');">Reservar ingresso</button>
       </section>
     </main>
 
-    <footer class="rodape-portal" aria-label="Rodapé do portal">
+    <footer class="rodape-portal">
       Luzes da Cidade, portal fictício criado para fins didáticos.
     </footer>
   </div>
